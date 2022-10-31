@@ -7,7 +7,7 @@ pipeline {
         
     stage('Git') {
       steps {
-        git branch: 'main', credentialsId: 'ssh-git', url: https://github.com/tolaoguntunde/node-cls'
+        git branch: 'main', credentialsId: 'ssh-git', url: https://github.com/tolaoguntunde/node-cls
       }
     }
      
