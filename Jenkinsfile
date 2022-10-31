@@ -7,22 +7,22 @@ pipeline {
         
     stage('Git') {
       steps {
-        git branch: 'main', credentialsId: 'ssh-git', url: https://github.com/tolaoguntunde/node-cls.git
+        sh 'git branch: 'main', credentialsId: 'ssh-git', url: https://github.com/tolaoguntunde/node-cls.git'
       }
     }
      
-    stage('Build') {
-      steps {
-        sh 'npm install'
-         //sh '<<Build Command>>'
-      }
-    }  
+//     stage('Build') {
+//       steps {
+//         sh 'npm install'
+//          //sh '<<Build Command>>'
+//       }
+//     }  
     
             
-    stage('Test') {
-      steps {
-        sh 'node test'
-      }
-    }
+//     stage('Test') {
+//       steps {
+//         sh 'node test'
+//       }
+//     }
   }
 }
