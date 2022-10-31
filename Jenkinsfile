@@ -7,8 +7,7 @@ pipeline {
         
     stage('Git') {
       steps {
-        sh 'git clone https://github.com/tolaoguntunde/node-cls.git'
-        sh'cd node-cls'
+        git branch: 'main', credentialsId: 'ssh-git', url: https://github.com/tolaoguntunde/node-cls.git
       }
     }
      
