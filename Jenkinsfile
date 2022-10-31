@@ -5,18 +5,18 @@ pipeline {
     
   stages {
         
-    stage('Git') {
-      steps {
-        git branch: 'main', credentialsId: 'ssh-git', url: 'https://github.com/tolaoguntunde/node-cls'
-      }
-    }
-     
-//     stage('Build') {
+//     stage('Git') {
 //       steps {
-//         sh 'npm install'
-//          //sh '<<Build Command>>'
+//         git branch: 'main', credentialsId: 'ssh-git', url: 'https://github.com/tolaoguntunde/node-cls'
 //       }
-//     }  
+//     }
+     
+    stage('Build') {
+      steps {
+        sh 'npm install'
+         //sh '<<Build Command>>'
+      }
+    }  
     
             
 //     stage('Test') {
