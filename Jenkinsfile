@@ -13,7 +13,7 @@ pipeline {
      
     stage('Build') {
       steps {
-        sh 'sudo apt install git'
+        sh 'echo git --version'
         sh 'npm install'
          //sh '<<Build Command>>'
       }
