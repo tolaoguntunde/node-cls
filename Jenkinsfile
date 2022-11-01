@@ -1,9 +1,9 @@
-pipeline {
-  agent any
+// pipeline {
+//   agent any
     
-  tools {nodejs "node"}
+//   tools {nodejs "node"}
     
-  stages {
+//   stages {
         
 //     stage('Git') {
 //       steps {
@@ -11,18 +11,28 @@ pipeline {
 //       }
 //     }
      
-    stage('Build') {
-      steps {
-        sh 'npm install'
-         //sh '<<Build Command>>'
-      }
-    }  
-    
-            
-//     stage('Test') {
+//     stage('Build') {
 //       steps {
-//         sh 'node test'
+//         sh 'npm install'
+//          //sh '<<Build Command>>'
 //       }
-//     }
+//     }  
+    
+//   }
+// }
+pipeline {
+  agent any
+  tools {nodejs "node"}
+  stages {
+    stage("connect Git") {
+      steps {
+        sh 'git clone https://github.com/tolaoguntunde/node-cls.git'
+        cd node-cls
+      }
+    }
+    stage('build') {
+      
+    }
   }
+  
 }
