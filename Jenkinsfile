@@ -24,14 +24,20 @@ pipeline {
   agent any
   tools {nodejs "node"}
   stages {
-    stage("connect Git") {
+    stage('Git') {
       steps {
         sh 'git clone https://github.com/tolaoguntunde/node-cls.git'
-        cd node-cls
+        sh 'cd node-cls'
+        sh 'pwd'
       }
     }
     stage('build') {
-      
+        steps {
+            sh 'docker build -t tolaoguntunde/node-app .'
+            sh'docker run -d --name nodeapp -p 3001:3000 tolaoguntunde/node-app'
+            sh 'docker push tolaoguntunde/node-app'
+                
+        }
     }
   }
   
