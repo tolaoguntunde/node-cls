@@ -22,7 +22,7 @@
 // }
 pipeline {
   agent any
-  tools {nodejs "node"}
+  tools { nodejs "node" }
   stages {
     stage('Git') {
       steps {
@@ -33,9 +33,14 @@ pipeline {
     stage('build') {
         steps {
             sh 'docker build -t tolaoguntunde/node-app .'
-            sh'docker run -d --name nodeapp -p 3001:3000 tolaoguntunde/node-app'
-            sh 'docker push tolaoguntunde/node-app'
-                
+            sh 'docker push docker.io/tolaoguntunde/node-app:latest'
+            sh 'docker image rm tolaoguntunde/node-app'
+            
+        }
+    }
+    stage('run') {
+        steps {
+            sh'docker run -d --name nodeapp -p 3001:3000 tolaoguntunde/node-app'   
         }
     }
   }
