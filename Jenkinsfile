@@ -26,8 +26,7 @@ pipeline {
   stages {
     stage('Git') {
       steps {
-        sh 'git clone https://github.com/tolaoguntunde/node-cls.git'
-        sh 'cd node-cls'
+        sh 'git clone https://github.com/tolaoguntunde/node-cls.git .'
         sh 'pwd'
       }
     }
